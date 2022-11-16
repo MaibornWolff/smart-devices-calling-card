@@ -2,9 +2,10 @@
 
 <section style="text-align:center;">
     <img style="background-color:white; height:160px; padding:20px;" src="docs/maibornwolff.png"/>
-    <img style="background-color:white; height:160px; padding:20px;" src="docs/intuity.png"/>
+    <img style="background-color:white; height:160px; padding:20px;" src="docs/intuity.png"/>  
 </section>
-
+  
+  
 This repository documents the collaborative work of [MaibornWolff](https://maibornwolff.de) and [intuity](https://www.intuity.de/) for an ATMEGA based calling card for one of our events.
 
 <img src="docs/front_back.jpg"/> 
