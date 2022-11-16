@@ -1,7 +1,6 @@
 # Smart Devices Day Calling Card
 
 <br />
-<br />
 
 <section align="center" style="text-align:center;">
     <img style="background-color:white; height:160px; padding:30px;" src="docs/maibornwolff.png"/>
