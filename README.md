@@ -25,7 +25,7 @@ The design implements multiple features:
 The hardware design is based around the ATMEGA328P and is quite similar to a stripped down version of the Arduino Pro Mini.
 We use a small CR1220 battery cell - though we found out that (some) CR1225 batteries also fit the socket and have a little more mAh - to deliver 3V of power to the device, which results in surprisingly long battery lives (greater than an hour of play time).
 
-<!-- TODO schematics -->
+<img src="docs/schematic.png"/> 
 
 ## Software
 
