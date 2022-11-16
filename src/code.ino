@@ -42,7 +42,7 @@ void setup()
   // initalize the random function
   randomSeed(analogRead(A0));
 
-  swipeLight(50);
+  swipeLight(50, true);
 
   // if the max score (15) was reached we want a special effect
   highscore = EEPROM.read(0);
@@ -50,9 +50,11 @@ void setup()
     delay(300);
     if (highscore == 15) {
       displayScore(highscore, 2., 4);
+      delay(200);
     } else {
-      displayScore(highscore, 1., 2);
+      displayScore(highscore, 0.5, 1);
     }
+    swipeLight(50, false);
   }
   delay(500);
 }
@@ -291,15 +293,26 @@ void displayScore(char score, float frequency, char repetitions) {
 }
 
 // creates a quick swipe animation
-void swipeLight(int animationSpeed) {
-  for (char i = 0; i < 4; ++i) {
-    digitalWrite(ledMap[i], HIGH);
-    delay(animationSpeed);
-  }
-  
-  for (char i = 0; i < 4; ++i) {
-    digitalWrite(ledMap[i], LOW);
-    delay(animationSpeed);
+void swipeLight(int animationSpeed, bool animationDirection) {
+
+  if (animationDirection) {
+    for (char i = 0; i < 4; ++i) {
+      digitalWrite(ledMap[i], HIGH);
+      delay(animationSpeed);
+    }
+    for (char i = 0; i < 4; ++i) {
+      digitalWrite(ledMap[i], LOW);
+      delay(animationSpeed);
+    }
+  } else {
+    for (char i = 3; i >= 0; ++i) {
+      digitalWrite(ledMap[i], HIGH);
+      delay(animationSpeed);
+    }
+    for (char i = 3; i >= 0; ++i) {
+      digitalWrite(ledMap[i], LOW);
+      delay(animationSpeed);
+    }
   }
 }
 
