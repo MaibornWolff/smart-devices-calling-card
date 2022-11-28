@@ -38,3 +38,25 @@ The Software is simple C code created with arduino studio.
 We use a custom bootloader to use the internal 8Mhz clock, this saves us one part on the BOM and we do not need the full clock accuracy anyway.
 The current code is ~350 lines of code. Most of the lines are being used by functions that improve the overall usability and cover edge cases.
 After compilation, the binary uses around ~20% of the available flash memory, so if you have any cool ideas feel free to contribute or create your own firmware!
+
+## How to reprogram
+
+The calling card can be reflashed with a different source code using the Arduino IDE and a FTDI to USB stick. This reauires some minor preparation in your IDE setup: 
+
+- Download the "atmega328p_internal_clock_bootloader" from this repository and move it to the Arduino IDE's hardware folder. The path is usually the same for MacOS and Windows: "/Users/YOUR_NAME/Documents/Arduino/hardware/".
+- After restarting the IDE, you should find a new entry in your "Board" section called "atmega328p_internal_clock" with one sub-entry called "ATMEGA328 (8 MHz interal clock)".
+
+On the hardware side, we'll be using a FTDI to USB stick ([SparkFun FTDI Basic](https://www.sparkfun.com/products/9873)) on the vertical 6-pin header on the boards left side. You could either solder pins to these, use a 2.54 mm grid pogo-pin clamp or put male jumper wires through these holes while applying a bit of pressure from the side to make good contact.
+
+The connections are (from top to bottom): 
+
+| Calling Card  | FTDI Usb Stick |
+| ------------- | ------------- |
+| GND  | GND  |
+| GND  | CTS  |
+| VIN  | 3V3  |
+| RX  | TX  |
+| TX  | RX  |
+| DTR  | DTR  |
+
+To flash new code, simply select the newly installed Board in your IDE, select the FTDI stick's port and upload your code as if it was a stock Arduino board. The programmer remains on the default ("AVRISP mkll").
