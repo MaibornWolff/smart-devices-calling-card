@@ -41,7 +41,7 @@ After compilation, the binary uses around ~20% of the available flash memory, so
 
 ## How to reprogram
 
-The calling card can be reflashed with a different source code using the Arduino IDE and a FTDI to USB stick. This reauires some minor preparation in your IDE setup: 
+The calling card can be reflashed with a different source code using the Arduino IDE and a FTDI to USB stick. This requires some minor preparation in your IDE setup: 
 
 - Download the "atmega328p_internal_clock_bootloader" from this repository and move it to the Arduino IDE's hardware folder. The path is usually the same for MacOS and Windows: "/Users/YOUR_NAME/Documents/Arduino/hardware/".
 - After restarting the IDE, you should find a new entry in your "Board" section called "atmega328p_internal_clock" with one sub-entry called "ATMEGA328 (8 MHz interal clock)".
@@ -58,5 +58,7 @@ The connections are (from top to bottom):
 | RX  | TX  |
 | TX  | RX  |
 | DTR  | DTR  |
+
+<img style="background-color:white; height:160px; padding:30px;" src="docs/ftdi_wiring.png"/>
 
 To flash new code, simply select the newly installed Board in your IDE, select the FTDI stick's port and upload your code as if it was a stock Arduino board. The programmer remains on the default ("AVRISP mkll").
